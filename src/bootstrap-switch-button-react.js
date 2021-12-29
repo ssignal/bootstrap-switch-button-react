@@ -53,9 +53,13 @@ export default class BootstrapSwitchButton extends React.Component {
 		if (typeof checked === 'boolean' && checked !== prevState.checked) {
 			this.setState({ checked });
 		}
+		const { disabled } = this.props;
+		if (typeof disabled === 'boolean' && disabled !== prevState.disabled) {
+			this.setState({ disabled });
+		}
 	}
 
-	toggle = event => {
+	toggle = () => {
 		this.state.checked ? this.off() : this.on();
 	};
 	off = () => {
